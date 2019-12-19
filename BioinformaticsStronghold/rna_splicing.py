@@ -29,14 +29,12 @@ def transcribe(dna):
     for nucleotide in dna:
         if nucleotide == "T":
             dna = dna.replace("T", "U")
-    
     return dna
 
 def codon_to_aa(codon):
     aa = ""
     amino_acids = { 
         'AUA':'I', 'AUC':'I', 'AUU':'I', 'AUG':'M',
-        'AUG':'M', 
         'ACA':'T', 'ACC':'T', 'ACG':'T', 'ACU':'T', 
         'AAC':'N', 'AAU':'N', 'AAA':'K', 'AAG':'K', 
         'AGC':'S', 'AGU':'S', 'AGA':'R', 'AGG':'R',                  
@@ -50,9 +48,10 @@ def codon_to_aa(codon):
         'GGA':'G', 'GGC':'G', 'GGG':'G', 'GGU':'G', 
         'UCA':'S', 'UCC':'S', 'UCG':'S', 'UCU':'S', 
         'UUC':'F', 'UUU':'F', 'UUA':'L', 'UUG':'L', 
-        'UAC':'Y', 'UAU':'Y', 'UAA':'', 'UAG':'', 
-        'UGC':'C', 'UGU':'C', 'UGA':'', 'UGG':'W', 
+        'UAC':'Y', 'UAU':'Y', 'UAA':'69', 'UAG':'64', 
+        'UGC':'C', 'UGU':'C', 'UGA':'65', 'UGG':'W', 
     }
+    
     for k, v in amino_acids.items():
             if k == codon:
                 aa = v
@@ -68,11 +67,10 @@ def translate(rna):
     return amino_sequence
 
 for value in result:
-    template_strand = result[value]
-    coding_strand = replicate(template_strand)
-    rna = transcribe(template_strand)
+    coding_strand = result[value]
+    rna = transcribe(coding_strand)
     protein = translate(rna)
-    print(protein + "\n")
+    print(protein)
     
     
 
