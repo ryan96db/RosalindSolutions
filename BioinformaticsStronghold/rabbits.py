@@ -1,10 +1,10 @@
-# -*- coding: utf-8 -*-
+ -*- coding: utf-8 -*-
 """
 Created on Thu Dec 19 13:04:55 2019
-
 @author: rdebo2
 """
 
+from scipy.special import comb
 
 arr = []
 with open('rosalind_fib.txt') as file:
