@@ -13,6 +13,6 @@ proxy_support = urllib.request.ProxyHandler({'http' : 'http://proxy.swmed.edu:31
 openr = urllib.request.build_opener(proxy_support)
 urllib.request.install_opener(openr)
 
-data=urllib.request.urlopen("http://www.uniprot.org/uniprot/" + code + ".txt")
+data=urllib.request.urlopen("http://www.uniprot.org/uniprot/" + code + ".fasta")
 content = data.read()
 print(content)
